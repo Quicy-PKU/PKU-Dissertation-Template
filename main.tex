@@ -1,0 +1,135 @@
+% 使用 XeLaTeX + BibTeX 编译
+% xelatex main.tex && bibtex main.aux && xelatex main.tex && xelatex main.tex
+
+% 清除临时文件
+% rm main.bbl main.blg main.toc main.out main.aux main.log chap/*.aux
+\RequirePackage{amsthm}
+\documentclass[fontset=fandol, ugly]{pkuthss}
+  % 学位论文模式  ugly    (默认打开，请保留)
+  % 盲审模式      blind   (默认关闭)
+  % 字体库        fontset
+  %   auto | windows | windows@overleaf | mac | fandol | ubuntu | none
+  % windows*, mac为商业字体，如需使用请遵循相应版权协议(默认下overleaf中不可用)
+  % fandol与windows效果相近，但字符库偏少，推荐使用(默认);
+  % ubuntu字体效果偏差较大; 设为none时需自行配置字体集;
+
+\usepackage{natbib}
+\let\openbox\relax
+\usepackage{enumitem,fancyvrb}
+\usepackage{booktabs,multirow,longtable,makecell}
+\RecustomVerbatimEnvironment{Verbatim}{Verbatim}{frame = single, tabsize = 4, fontsize=\footnotesize}
+\renewcommand{\v}[1]{\boldsymbol{#1}}
+\newcommand\pkg[1]{\textsf{#1}}
+\raggedbottom
+\setlength{\hfuzz}{3pt}
+\ctexset{
+	linestretch = 2\ccwd,
+	contentsname = {Contents},
+	listfigurename = {List of Figures},
+	listtablename = {List of Tables},
+	figurename = {Figure},
+	tablename = {Table},
+	indexname = {Index},
+	appendixname = {Appendix},
+	part/name = {\partname\space},
+	part/number = {\thepart},
+	chapter/name = {\chaptername\space},
+	chapter/number = {\thechapter}
+}
+
+\newcommand{\myemph}[1]{\emph{\textcolor{red}{#1}}}
+\newcommand{\unemph}[1]{\textup{\textcolor{black}{#1}}}
+\newcommand{\docversion}{v1.7.4}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\allowdisplaybreaks[4]
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{indentfirst}
+\usepackage{arydshln}
+\usepackage{shorttoc}
+\usepackage[plain,ruled,algochapter]{algorithm2e}
+\usepackage{threeparttable}
+\graphicspath{{img/}}
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\green}{\color{green}}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{assumption}{Assumption}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\theoremstyle{remark}
+\newtheorem{example}{Example}[chapter]
+
+
+\newlength{\bibitemsep}\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
+\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
+\let\oldthebibliography\thebibliography
+\renewcommand\thebibliography[1]{%
+	\oldthebibliography{#1}%
+	\setlength{\parskip}{\bibitemsep}%
+	\setlength{\itemsep}{\bibparskip}%
+}
+
+\def\bibfont{\zihao{5}\linespread{1.27}\selectfont}
+
+\pkuthssinfo{
+	cthesisname = {博士学位论文},
+ 	thesiscover = {博士研究生学位论文},
+	ethesisname = {Doctoral Dissertation},
+	ctitle = {博士学位论文英文模板 (XeLaTeX + BibTeX)},
+	etitle = {Template for Doctoral Dissertation (XeLaTeX + BibTeX)},
+	cauthor = {叶志强},
+	eauthor = {Zhiqiang Ye},
+	studentid = {********},
+	date = {\zhdigits{2022}\ \ 年\ \ \zhnumber{5}\ \ 月},
+	school = {数学科学学院},
+	cmajor = {统计学}, 
+	emajor = {Statistics},
+	direction = {研究方向},
+	cmentor = {XXXX\ \ 教授}, 
+	ementor = {Prof.\ XXXX},
+	ckeywords = {XXX，XXX，XXX。}, 
+	ekeywords = {XXX, XXX, XXX.}
+}
+\hypersetup{colorlinks = true, allcolors = blue}
+
+\begin{document}
+	\frontmatter
+	\pagestyle{empty}
+	\maketitle
+	\cleardoublepage
+	\include{chap/copyright}
+	\cleardoublepage
+	\pagestyle{plain}
+	\setcounter{page}{0}
+	\pagenumbering{Roman}
+	\include{chap/abstract}
+	\tableofcontents
+	\mainmatter
+	\include{chap/chap1}
+	\include{chap/chap2}
+	\include{chap/chap3}
+	\include{chap/chap4}
+	\include{chap/chap5}
+    \appendix
+
+    \renewcommand{\bibname}{References}
+	\bibliographystyle{apalike}
+	\bibliography{reference}
+	\addcontentsline{toc}{chapter}{References}
+    \backmatter
+    \include{chap/publications}
+	\include{chap/acknowledgment}
+	\include{chap/origin}
+	\include{chap/afterdefense}
+\end{document}
