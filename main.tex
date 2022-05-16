@@ -3,6 +3,9 @@
 
 % 清除临时文件
 % rm main.bbl main.blg main.toc main.out main.aux main.log chap/*.aux
+
+% 有问题可通过邮件或 iMessage 联系: zqye@quicy.cn
+
 \RequirePackage{amsthm}
 \documentclass[fontset=fandol, ugly]{pkuthss}
   % 学位论文模式  ugly    (默认打开，请保留)
@@ -124,12 +127,18 @@
     \appendix
 
     \renewcommand{\bibname}{References}
+	% author-year 格式的参考文献
 	\bibliographystyle{apalike}
+	% numeric 格式的参考文献
+	% \bibliographystyle{abbrv}
+	% 你也可以更改为其他 style，参考 https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles
 	\bibliography{reference}
 	\addcontentsline{toc}{chapter}{References}
     \backmatter
     \include{chap/publications}
 	\include{chap/acknowledgment}
 	\include{chap/origin}
+
+	% 答辩后需要添加答辩委员会名单、决议书、承诺书等，在答辩前可将此行代码注释
 	\include{chap/afterdefense}
 \end{document}
