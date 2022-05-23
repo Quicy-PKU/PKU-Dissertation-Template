@@ -1,4 +1,6 @@
-# PKU-Dissertation-Template
+# 2022 北京大学博士学位论文英文模板
+**该模板已提交至 Overleaf gallery，点此[链接](https://www.overleaf.com/latex/templates/2022-peking-university-doctoral-dissertation-template-english-version/jxtvktyjvvtv)跳转**
+
 在北京大学硕士学位论文模板 ([iofu728](https://www.overleaf.com/latex/templates/2021-peking-university-master-thesis-template-iofu728-pkuthss/rwfvbkpzydpf)) 的基础上进行了以下改进:
 
 * 将中文模板更改为英文模板。

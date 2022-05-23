@@ -1,6 +1,8 @@
 % 使用 XeLaTeX + BibTeX 编译
 % xelatex main.tex && bibtex main.aux && xelatex main.tex && xelatex main.tex
 
+% 可使用 overleaf 在线编译，也可使用在本地使用 texlive 进行编译
+
 % 清除临时文件
 % rm main.bbl main.blg main.toc main.out main.aux main.log chap/*.aux
 
@@ -91,8 +93,8 @@
 	ethesisname = {Doctoral Dissertation},
 	ctitle = {博士学位论文英文模板 (XeLaTeX + BibTeX)},
 	etitle = {Template for Doctoral Dissertation (XeLaTeX + BibTeX)},
-	cauthor = {叶志强},
-	eauthor = {Zhiqiang Ye},
+	cauthor = {姓名},
+	eauthor = {Author Name},
 	studentid = {********},
 	date = {\zhdigits{2022}\ \ 年\ \ \zhnumber{5}\ \ 月},
 	school = {数学科学学院},
@@ -131,6 +133,7 @@
 	\bibliographystyle{apalike}
 	% numeric 格式的参考文献
 	% \bibliographystyle{abbrv}
+	
 	% 你也可以更改为其他 style，参考 https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles
 	\bibliography{reference}
 	\addcontentsline{toc}{chapter}{References}
