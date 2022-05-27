@@ -217,7 +217,7 @@
 
 \ifthss@opt@pkufoot
     % Recounter for each page.
-    % \RequirePackage{chngcntr}
+    \RequirePackage{chngcntr}
     \counterwithout{footnote}{chapter}
     \counterwithin{footnote}{page}
 	% Handle the `Unparsed material' issue with latex/dvipdfmx compilation.
@@ -612,7 +612,15 @@
     {\thss@leaders\thecontentspage}%
 }
 \thss@set@toc@format
-
+\titlecontents{table}
+  [\z@]{}
+  {\tablename~\thecontentslabel\quad}{}
+  {\thss@leaders\thecontentspage}
+\titlecontents{figure}
+  [\z@]{}
+  {\figurename~\thecontentslabel\quad}{}
+  {\thss@leaders\thecontentspage}
+  
 % Subfigure reference format.
 \renewcommand\thesubfigure{(\alph{subfigure})}
 
